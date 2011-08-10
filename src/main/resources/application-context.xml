@@ -24,9 +24,8 @@
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
     
     <!-- Spring manage ServiceBean -->
-    <bean id="validateAeadServ" class="org.unitedid.yhsm.ws.ValidateAeadServiceImpl" />
+    <bean id="validationServ" class="org.unitedid.yhsm.ws.ValidationServiceImpl" />
 
     <!-- JAX-WS Service Endpoint -->    
-    <jaxws:endpoint id="validateAeadService" implementor="#validateAeadServ" address="/validateAeadService" />
-    
+    <jaxws:endpoint id="validationService" implementor="#validationServ" address="/validationService" />
 </beans>

@@ -23,15 +23,19 @@ import org.unitedid.yhsm.internal.YubiHSMErrorException;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "org.unitedid.yhsm.ws.ValidateAeadService")
-public class ValidateAeadServiceImpl implements ValidateAeadService {
+@WebService
+public interface ValidationService {
 
-    @Override
     public boolean validateAEAD(@WebParam(name = "nonce") String nonce,
                                 @WebParam(name = "keyHandle") int keyHandle,
                                 @WebParam(name = "aead") String aead,
-                                @WebParam(name = "plaintext") byte[] plaintext) throws YubiHSMErrorException {
-        ValidateAead validateAead = new ValidateAead();
-        return validateAead.validate(nonce, keyHandle, aead, plaintext);
-    }
+                                @WebParam(name = "plaintext") byte[] plaintext) throws YubiHSMErrorException;
+
+    public int validateOathHOTP(@WebParam(name = "nonce") String nonce,
+                                @WebParam(name = "keyHandle") int keyHandle,
+                                @WebParam(name = "aead") String aead,
+                                @WebParam(name = "counter") int counter,
+                                @WebParam(name = "otp") String otp,
+                                @WebParam(name = "lookAhead") int lookAhead) throws YubiHSMErrorException;
+
 }

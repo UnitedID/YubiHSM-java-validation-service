@@ -25,16 +25,16 @@ import org.unitedid.yhsm.internal.YubiHSMCommandFailedException;
 import org.unitedid.yhsm.internal.YubiHSMErrorException;
 import org.unitedid.yhsm.internal.YubiHSMInputException;
 
-public class ValidateAead {
-    private final Logger log = LoggerFactory.getLogger(ValidateAead.class);
+public class Validation {
+    private final Logger log = LoggerFactory.getLogger(Validation.class);
 
     private YubiHSM yubiHSM;
 
-    ValidateAead() throws YubiHSMErrorException {
-        yubiHSM = new YubiHSM(Config.getHsmDevice(), 1);
+    Validation() throws YubiHSMErrorException {
+        yubiHSM = new YubiHSM(Config.getHsmDevice(), Config.getHsmReadTimeout());
     }
 
-    public boolean validate(String nonce, int keyHandle, String aead, byte[] plaintext) {
+    public boolean validateAEAD(String nonce, int keyHandle, String aead, byte[] plaintext) {
         try {
             return yubiHSM.validateAEAD(nonce, keyHandle, aead, new String(plaintext));
         } catch (YubiHSMInputException e) {
@@ -45,4 +45,17 @@ public class ValidateAead {
             throw new RuntimeException(e);
         }
     }
+
+    public int validateOathHOTP(String nonce, int keyHandle, String aead, int counter, String otp, int lookAhead) {
+        try {
+            return yubiHSM.validateOathHOTP(yubiHSM, keyHandle, nonce, aead, counter, otp, lookAhead);
+        } catch (YubiHSMCommandFailedException e) {
+            throw new RuntimeException(e);
+        } catch (YubiHSMErrorException e) {
+            throw new RuntimeException(e);
+        } catch (YubiHSMInputException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

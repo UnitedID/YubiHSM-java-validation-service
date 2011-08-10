@@ -92,7 +92,7 @@
         <dependency>
             <groupId>org.unitedid</groupId>
             <artifactId>YubiHSM</artifactId>
-            <version>0.5</version>
+            <version>0.8</version>
         </dependency>
     </dependencies>
 
@@ -127,7 +127,7 @@
                         <id>process-classes</id>
                         <phase>process-classes</phase>
                         <configuration>
-                            <className>org.unitedid.yhsm.ws.ValidateAeadService</className>
+                            <className>org.unitedid.yhsm.ws.ValidationService</className>
                             <genWsdl>true</genWsdl>
                             <verbose>true</verbose>
                         </configuration>

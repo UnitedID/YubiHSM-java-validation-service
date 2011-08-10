@@ -42,10 +42,13 @@ public class Config {
     }
 
     public static String getHsmDevice() {
-        if (log.isDebugEnabled()) {
-            log.debug("Got device {} from yubihsm.properties", prop.get("device"));
-        }
+        log.debug("Got device {} from yubihsm.properties", prop.get("device"));
         return (String) prop.get("device");
+    }
+
+    public static float getHsmReadTimeout() {
+        log.debug("Got read timeout {} from yubihsm.properties", prop.get("readtimeout"));
+        return Float.parseFloat((String) prop.get("readtimeout"));
     }
 
     static {
