@@ -23,7 +23,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.unitedid</groupId>
     <artifactId>YubiHSM-java-validation-service</artifactId>
-    <version>0.2</version>
+    <version>0.3</version>
     <inceptionYear>2011</inceptionYear>
     <packaging>war</packaging>
     <organization>
@@ -92,7 +92,7 @@
         <dependency>
             <groupId>org.unitedid</groupId>
             <artifactId>YubiHSM</artifactId>
-            <version>0.8</version>
+            <version>0.8.1</version>
         </dependency>
     </dependencies>
 
