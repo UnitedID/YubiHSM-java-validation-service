@@ -45,4 +45,18 @@ public class ValidationServiceImpl implements ValidationService {
         Validation validation = new Validation();
         return validation.validateOathHOTP(nonce, keyHandle, aead, counter, otp, lookAhead);
     }
+
+    @Override
+    public boolean validateOathTOTP(@WebParam(name = "nonce") String nonce,
+                                @WebParam(name = "keyHandle") int keyHandle,
+                                @WebParam(name = "aead") String aead,
+                                @WebParam(name = "otp") String otp,
+                                @WebParam(name = "period") int period,
+                                @WebParam(name = "drift") int drift,
+                                @WebParam(name = "backwardDrift") int backwardDrift,
+                                @WebParam(name = "forwardDrift") int forwardDrift) throws YubiHSMErrorException {
+        Validation validation = new Validation();
+        return validation.validateOathTOTP(nonce, keyHandle, aead, otp, period, drift, backwardDrift, forwardDrift);
+
+    }
 }

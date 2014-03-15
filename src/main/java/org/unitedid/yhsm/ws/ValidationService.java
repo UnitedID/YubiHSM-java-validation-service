@@ -38,4 +38,14 @@ public interface ValidationService {
                                 @WebParam(name = "otp") String otp,
                                 @WebParam(name = "lookAhead") int lookAhead) throws YubiHSMErrorException;
 
+    public boolean validateOathTOTP(@WebParam(name = "nonce") String nonce,
+                                @WebParam(name = "keyHandle") int keyHandle,
+                                @WebParam(name = "aead") String aead,
+                                @WebParam(name = "otp") String otp,
+                                @WebParam(name = "period") int period,
+                                @WebParam(name = "drift") int drift,
+                                @WebParam(name = "backwardDrift") int backwardDrift,
+                                @WebParam(name = "forwardDrift") int forwardDrift) throws YubiHSMErrorException;
+
+
 }

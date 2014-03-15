@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2011 United ID. All rights reserved.
+  ~ Copyright (c) 2011 - 2014 United ID. All rights reserved.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -16,14 +16,13 @@
   ~
   ~ @author Stefan Wold <stefan.wold@unitedid.org>
   -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.unitedid</groupId>
     <artifactId>YubiHSM-java-validation-service</artifactId>
-    <version>0.3</version>
+    <version>0.5-dev</version>
     <inceptionYear>2011</inceptionYear>
     <packaging>war</packaging>
     <organization>
@@ -92,7 +91,7 @@
         <dependency>
             <groupId>org.unitedid</groupId>
             <artifactId>YubiHSM</artifactId>
-            <version>0.8.1</version>
+            <version>1.0-dev</version>
         </dependency>
     </dependencies>
 

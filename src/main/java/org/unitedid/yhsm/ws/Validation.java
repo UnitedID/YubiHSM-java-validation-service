@@ -58,4 +58,18 @@ public class Validation {
         }
     }
 
+    public boolean validateOathTOTP(String nonce, int keyHandle, String aead, String otp, int period,
+                                int drift, int backwardDrift, int forwardDrift) {
+        try {
+            return yubiHSM.validateOathTOTP(yubiHSM, keyHandle, nonce, aead, otp, period, drift, backwardDrift,
+                    forwardDrift);
+        } catch (YubiHSMCommandFailedException e) {
+            throw new RuntimeException(e);
+        } catch (YubiHSMErrorException e) {
+            throw new RuntimeException(e);
+        } catch (YubiHSMInputException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
